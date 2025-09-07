@@ -7,6 +7,7 @@
     body { margin: 0; font-family: Arial, sans-serif; }
     header { background: #1a73e8; color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
     header h1 { margin: 0; font-size: 24px; }
+    header img { height: 60px; }
     nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; }
     nav a:hover { text-decoration: underline; }
     .languages button { margin-left: 5px; padding: 5px 10px; border: none; background: white; color: #1a73e8; border-radius: 5px; cursor: pointer; }
@@ -29,7 +30,9 @@
 <body>
 
   <header>
-    <h1 id="logo">Faqja Ime</h1>
+    <h1 id="logo">
+      <img src="logo.png" alt="Logo">
+    </h1>
     <nav>
       <a href="#about" id="nav-about">Rreth Nesh</a>
       <a href="#services" id="nav-services">Shërbimet</a>
@@ -85,7 +88,7 @@
     <h2 id="contact-title">Kontakto</h2>
     <div class="contact">
       <p>Email: <a href="mailto:contactmyworking@gmail.com">contactmyworking@gmail.com</a></p>
-      <p>WhatsApp: <a href target="_blank"></a></p>
+      <p>WhatsApp: <a href="https://wa.me/355600000000" target="_blank">+355 60 000 0000</a></p>
     </div>
   </section>
 
@@ -103,6 +106,10 @@
     const content = {
       sq: {
         logo: "Faqja Ime",
+        navAbout: "Rreth Nesh",
+        navServices: "Shërbimet",
+        navPortfolio: "Portfolio",
+        navContact: "Kontakto",
         heroTitle: "Ne krijojmë faqet që punojnë për ju",
         heroText: "Zgjidhni një partner të besueshëm për faqen tuaj të internetit",
         heroButton: "Kontakto tani",
@@ -117,6 +124,10 @@
       },
       en: {
         logo: "My Working",
+        navAbout: "About Us",
+        navServices: "Services",
+        navPortfolio: "Portfolio",
+        navContact: "Contact",
         heroTitle: "We create websites that work for you",
         heroText: "Choose a reliable partner for your website",
         heroButton: "Contact now",
@@ -131,6 +142,10 @@
       },
       it: {
         logo: "My Working",
+        navAbout: "Chi siamo",
+        navServices: "Servizi",
+        navPortfolio: "Portfolio",
+        navContact: "Contatti",
         heroTitle: "Creiamo siti web che lavorano per te",
         heroText: "Scegli un partner affidabile per il tuo sito web",
         heroButton: "Contattaci ora",
@@ -146,7 +161,10 @@
     };
 
     function changeLang(lang) {
-      document.getElementById("logo").innerText = content[lang].logo;
+      document.getElementById("nav-about").innerText = content[lang].navAbout;
+      document.getElementById("nav-services").innerText = content[lang].navServices;
+      document.getElementById("nav-portfolio").innerText = content[lang].navPortfolio;
+      document.getElementById("nav-contact").innerText = content[lang].navContact;
       document.getElementById("hero-title").innerText = content[lang].heroTitle;
       document.getElementById("hero-text").innerText = content[lang].heroText;
       document.getElementById("hero-button").innerText = content[lang].heroButton;
