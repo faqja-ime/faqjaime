@@ -2,155 +2,145 @@
 <html lang="sq">
 <head>
   <meta charset="UTF-8">
-  <title>Biznesi im - Krijim Faqesh Web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faqja Ime</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f4f6f8;
+      background-color: #f9f9f9;
       color: #333;
     }
     header {
-      background: #2c3e50;
+      background: linear-gradient(135deg, #007bff, #ff6600);
       color: white;
-      padding: 40px;
       text-align: center;
-      position: relative;
+      padding: 80px 20px;
     }
     header h1 {
+      font-size: 48px;
       margin: 0;
-      font-size: 40px;
+      animation: fadeIn 2s ease-in-out;
     }
     header p {
       font-size: 20px;
+      margin-top: 10px;
+      animation: fadeIn 3s ease-in-out;
     }
-    .lang-switch {
-      position: absolute;
-      top: 20px;
-      right: 20px;
+    nav {
+      background: #333;
+      padding: 10px;
+      text-align: center;
     }
-    .lang-switch button {
-      margin-left: 5px;
-      padding: 5px 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ff6600;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
     }
     .services {
       display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 40px;
       flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
     }
     .service {
       background: white;
-      padding: 20px;
       border-radius: 10px;
-      width: 200px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      flex: 1 1 250px;
       text-align: center;
+      transition: transform 0.3s;
+    }
+    .service:hover {
+      transform: translateY(-5px);
     }
     .service h3 {
-      color: #2c3e50;
+      color: #007bff;
     }
-    .about, .contact {
-      padding: 40px;
-      text-align: center;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background-color: #e67e22;
+    footer {
+      background: #333;
       color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
     }
-    .btn:hover {
-      background-color: #d35400;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    button {
+      background: #ff6600;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #e65c00;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="lang-switch">
-      <button onclick="setLang('sq')">Shqip</button>
-      <button onclick="setLang('en')">English</button>
-    </div>
-    <h1 id="hero-title">Krijim Faqesh Web Profesionale</h1>
-    <p id="hero-sub">Unë ndërtoj dhe menaxhoj faqe web për biznesin tuaj</p>
+    <h1>Mirësevini në faqen time!</h1>
+    <p>Krijoj faqe interneti moderne dhe profesionale</p>
   </header>
 
-  <section class="services">
-    <div class="service">
-      <h3 id="service1-title">Krijim Faqe Web</h3>
-      <p id="service1-desc">Faqe moderne, të shpejta dhe të sigurta.</p>
-    </div>
-    <div class="service">
-      <h3 id="service2-title">Menaxhim</h3>
-      <p id="service2-desc">Mbaj faqen tuaj gjithmonë të përditësuar.</p>
-    </div>
-    <div class="service">
-      <h3 id="service3-title">SEO</h3>
-      <p id="service3-desc">Ndihmoj që faqja juaj të dalë në Google.</p>
+  <nav>
+    <a href="#about">Rreth Nesh</a>
+    <a href="#services">Shërbimet</a>
+    <a href="#contact">Kontakto</a>
+  </nav>
+
+  <section id="about">
+    <h2>Rreth Nesh</h2>
+    <p>Ne jemi një ekip i apasionuar pas teknologjisë dhe krijimit të faqeve të internetit.
+       Ndihmojmë individë dhe biznese të kenë prezencë online profesionale.</p>
+  </section>
+
+  <section id="services">
+    <h2>Shërbimet</h2>
+    <div class="services">
+      <div class="service">
+        <h3>Krijim Faqe Web</h3>
+        <p>Faqe të bukura, të shpejta dhe funksionale për çdo nevojë.</p>
+      </div>
+      <div class="service">
+        <h3>Mirëmbajtje</h3>
+        <p>Mbajmë faqen tuaj të përditësuar dhe të sigurt në çdo kohë.</p>
+      </div>
+      <div class="service">
+        <h3>Këshillim</h3>
+        <p>Ofrojmë udhëzime për të zgjedhur zgjidhjen më të mirë online.</p>
+      </div>
     </div>
   </section>
 
-  <section class="about">
-    <h2 id="about-title">Rreth meje</h2>
-    <p id="about-text">Jam Jemine, një krijuese faqesh web që punoj me pasion për të ndihmuar individë dhe biznese të kenë prezencë profesionale online. Ofron zgjidhje të thjeshta, praktike dhe të përshtatura për çdo klient. Qëllimi im është të bëj faqet tuaja të internetit të bukura, të shpejta dhe të lehta për t’u përdorur.</p>
+  <section id="contact">
+    <h2>Kontakto</h2>
+    <p>Na kontakto përmes email-it:</p>
+    <p><strong>domijemine8@gmail.com</strong></p>
+    <button onclick="window.location.href='mailto:domijemine8@gmail.com'">Dërgo Email</button>
   </section>
 
-  <section class="contact">
-    <h2 id="contact-title">Kontakto</h2>
-    <p id="contact-text">Nëse dëshironi një faqe web ose menaxhim profesional, më kontaktoni këtu:</p>
-    <a href="mailto:domijemine8@gmail.com" class="btn" id="contact-btn">Dërgo Email</a>
-  </section>
-
-  <script>
-    const translations = {
-      sq: {
-        "hero-title": "Krijim Faqesh Web Profesionale",
-        "hero-sub": "Unë ndërtoj dhe menaxhoj faqe web për biznesin tuaj",
-        "service1-title": "Krijim Faqe Web",
-        "service1-desc": "Faqe moderne, të shpejta dhe të sigurta.",
-        "service2-title": "Menaxhim",
-        "service2-desc": "Mbaj faqen tuaj gjithmonë të përditësuar.",
-        "service3-title": "SEO",
-        "service3-desc": "Ndihmoj që faqja juaj të dalë në Google.",
-        "about-title": "Rreth meje",
-        "about-text": "Jam Jemine, një krijuese faqesh web që punoj me pasion për të ndihmuar individë dhe biznese të kenë prezencë profesionale online. Ofron zgjidhje të thjeshta, praktike dhe të përshtatura për çdo klient. Qëllimi im është të bëj faqet tuaja të internetit të bukura, të shpejta dhe të lehta për t’u përdorur.",
-        "contact-title": "Kontakto",
-        "contact-text": "Nëse dëshironi një faqe web ose menaxhim profesional, më kontaktoni këtu:",
-        "contact-btn": "Dërgo Email"
-      },
-      en: {
-        "hero-title": "Professional Website Creation",
-        "hero-sub": "I design and manage websites for your business",
-        "service1-title": "Website Development",
-        "service1-desc": "Modern, fast, and secure websites.",
-        "service2-title": "Management",
-        "service2-desc": "Keep your website always updated.",
-        "service3-title": "SEO",
-        "service3-desc": "Helping your site appear on Google.",
-        "about-title": "About Me",
-        "about-text": "I am Jemine, a web creator passionate about helping individuals and businesses build a professional online presence. I offer simple, practical, and customized solutions for every client. My goal is to make your websites beautiful, fast, and easy to use.",
-        "contact-title": "Contact",
-        "contact-text": "If you want a professional website or reliable management, contact me here:",
-        "contact-btn": "Send Email"
-      }
-    };
-
-    function setLang(lang) {
-      for (let key in translations[lang]) {
-        document.getElementById(key).textContent = translations[lang][key];
-      }
-    }
-  </script>
+  <footer>
+    <p>&copy; 2025 Faqja Ime | Të gjitha të drejtat e rezervuara</p>
+  </footer>
 
 </body>
 </html>
