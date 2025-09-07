@@ -1,277 +1,161 @@
 <!DOCTYPE html>
 <html lang="sq">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Faqja Ime</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faqja Ime | My Working</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome për ikonat -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    :root{
-      --primary:#007bff; --accent:#ff6600; --dark:#333; --light:#f9f9f9; --ok:#25D366;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--light);color:#333}
-    header{
-      background:linear-gradient(135deg,var(--primary),var(--accent));
-      color:#fff;text-align:center;padding:80px 20px;
-    }
-    header h1{margin:0;font-size:48px}
-    header p{margin:10px 0 0;font-size:20px}
-    .lang-switch{margin-top:14px}
-    .lang-switch button{
-      margin:0 5px;padding:6px 12px;border:none;border-radius:6px;
-      background:#fff;color:#333;font-weight:bold;cursor:pointer
-    }
-    .lang-switch button:hover{background:var(--accent);color:#fff}
-
-    nav{background:var(--dark);padding:10px;text-align:center;position:sticky;top:0;z-index:10}
-    nav a, nav button{
-      color:#fff;margin:0 14px;text-decoration:none;font-weight:bold;
-      background:none;border:none;cursor:pointer;font-size:16px
-    }
-    nav a:hover, nav button:hover{color:var(--accent)}
-
-    section{padding:60px 20px;max-width:1000px;margin:auto}
-    .services,.portfolio{
-      display:flex;flex-wrap:wrap;gap:20px;justify-content:center
-    }
-    .card{
-      background:#fff;border-radius:12px;padding:20px;
-      box-shadow:0 4px 10px rgba(0,0,0,.08);
-      flex:1 1 260px;max-width:320px;text-align:center;
-      transition:transform .3s
-    }
-    .card:hover{transform:translateY(-6px)}
-    .card h3{color:var(--primary);margin-top:6px}
-
-    .project img{width:100%;border-radius:8px;margin-bottom:10px}
-
-    footer{background:#222;color:#fff;text-align:center;padding:20px;margin-top:40px}
-    .btn{
-      display:inline-block;background:var(--accent);color:#fff;border:none;
-      padding:10px 18px;border-radius:8px;cursor:pointer;font-size:16px
-    }
-    .btn:hover{filter:brightness(.95)}
-    .btn-whatsapp{background:var(--ok)}
-    .tagline{opacity:.95}
-
-    /* Modal (dritarja e kontaktit) */
-    .modal-backdrop{
-      position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;
-      align-items:center;justify-content:center;padding:20px;z-index:50
-    }
-    .modal{
-      background:#fff;border-radius:16px;max-width:520px;width:100%;
-      padding:24px;box-shadow:0 10px 30px rgba(0,0,0,.2);animation:pop .2s ease-out
-    }
-    .modal header{padding:0;background:none;color:#333;text-align:left}
-    .modal h3{margin:0 0 8px 0}
-    .modal p{margin:0 0 16px 0;color:#555}
-    .modal .row{display:flex;gap:10px;flex-wrap:wrap}
-    .modal .chip{
-      background:#f1f1f1;border-radius:10px;padding:10px 12px;display:inline-flex;
-      align-items:center;gap:8px
-    }
-    .modal .chip a{color:#0a58ca;text-decoration:none}
-    .modal .actions{margin-top:14px;display:flex;gap:10px;justify-content:flex-end}
-    .close{background:#eee;color:#333}
-    @keyframes pop{from{transform:scale(.97);opacity:0}to{transform:scale(1);opacity:1}}
+    body { font-family: 'Poppins', sans-serif; margin:0; background:#f5f7fa; color:#333; }
+    header { background:linear-gradient(90deg,#0077b6,#00b4d8); color:white; padding:15px 30px; display:flex; justify-content:space-between; align-items:center; }
+    .logo { font-size:1.5em; font-weight:600; display:flex; align-items:center; }
+    nav button { margin-left:10px; padding:6px 12px; border:none; border-radius:6px; background:white; color:#0077b6; cursor:pointer; font-weight:600; }
+    nav button:hover { background:#caf0f8; }
+    section { padding:40px 20px; text-align:center; }
+    h2 { color:#0077b6; margin-bottom:20px; }
+    .services,.portfolio { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+    .card { background:white; padding:20px; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,0.1); width:250px; }
+    .card:hover { transform:translateY(-5px); transition:0.3s; }
+    .contact-btn { padding:12px 20px; background:#0077b6; color:white; border:none; border-radius:8px; cursor:pointer; font-size:1em; margin-top:20px; }
+    .contact-btn:hover { background:#0096c7; }
+    footer { background:#0077b6; color:white; text-align:center; padding:20px; }
+    /* FAQ */
+    .faq { max-width:800px; margin:auto; text-align:left; }
+    .faq-item { background:white; margin-bottom:10px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+    .faq-question { padding:15px; cursor:pointer; font-weight:600; color:#0077b6; }
+    .faq-answer { padding:0 15px 15px; display:none; }
+    .faq-item.active .faq-answer { display:block; }
+    /* Social icons */
+    .social-links { margin-top:15px; }
+    .social-links a { margin:0 10px; display:inline-block; width:40px; height:40px; line-height:40px; border-radius:50%; background:white; color:#0077b6; font-size:20px; text-align:center; text-decoration:none; transition:0.3s; }
+    .social-links a:hover { background:#90e0ef; }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1 id="title">Mirësevini në faqen time!</h1>
-    <p id="subtitle" class="tagline">Krijoj faqe interneti moderne dhe profesionale</p>
-    <div class="lang-switch">
-      <button onclick="setLanguage('sq')">SQ</button>
-      <button onclick="setLanguage('en')">EN</button>
-      <button onclick="setLanguage('it')">IT</button>
-    </div>
-  </header>
-
+<header>
+  <div class="logo"><span id="logoText">Faqja Ime</span></div>
   <nav>
-    <a href="#about" id="nav-about">Rreth Nesh</a>
-    <a href="#services" id="nav-services">Shërbimet</a>
-    <a href="#portfolio" id="nav-portfolio">Portfolio</a>
-    <!-- “Kontakto” tani hap modal-in me kontaktet -->
-    <button id="nav-contact">Kontakto</button>
+    <button onclick="setLanguage('sq')">SQ</button>
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('it')">IT</button>
   </nav>
+</header>
 
-  <section id="about">
-    <h2 id="about-title">Rreth Nesh</h2>
-    <p id="about-text">
-      Ne jemi një ekip i apasionuar pas teknologjisë dhe krijimit të faqeve të internetit.
-      Ndihmojmë individë dhe biznese të kenë prezencë online profesionale.
-    </p>
-  </section>
+<section id="about">
+  <h2 id="aboutTitle">Rreth Nesh</h2>
+  <p id="aboutText">Ne krijojmë faqe moderne interneti për individë dhe biznese.</p>
+</section>
 
-  <section id="services">
-    <h2 id="services-title">Shërbimet</h2>
-    <div class="services">
-      <div class="card">
-        <h3 id="service1-title">Krijim Faqe Web</h3>
-        <p id="service1-text">Faqe të bukura, të shpejta dhe funksionale për çdo nevojë.</p>
-      </div>
-      <div class="card">
-        <h3 id="service2-title">Mirëmbajtje</h3>
-        <p id="service2-text">Mbajmë faqen tuaj të përditësuar dhe të sigurt në çdo kohë.</p>
-      </div>
-      <div class="card">
-        <h3 id="service3-title">Këshillim</h3>
-        <p id="service3-text">Ofrojmë udhëzime për të zgjedhur zgjidhjen më të mirë online.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="portfolio">
-    <h2 id="portfolio-title">Portfolio</h2>
-    <div class="portfolio">
-      <div class="card project">
-        <img src="https://via.placeholder.com/300x200" alt="Projekt 1">
-        <h3 id="project1-title">Projekti 1</h3>
-        <p id="project1-text">Shembull i një faqe interneti të krijuar.</p>
-      </div>
-      <div class="card project">
-        <img src="https://via.placeholder.com/300x200" alt="Projekt 2">
-        <h3 id="project2-title">Projekti 2</h3>
-        <p id="project2-text">Shembull i një dizajni modern.</p>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:16px">
-      <!-- Buton alternativ kontakti poshtë faqes -->
-      <button class="btn btn-whatsapp" id="contact-cta">📱 WhatsApp</button>
-    </div>
-  </section>
-
-  <footer>
-    <p id="footer">© 2025 Faqja Ime | Të gjitha të drejtat e rezervuara</p>
-  </footer>
-
-  <!-- MODAL: Kontakti -->
-  <div class="modal-backdrop" id="contactModal">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="contact-title">
-      <header>
-        <h3 id="contact-title">Kontakto</h3>
-        <p id="contact-desc">Zgjidh mënyrën e preferuar për të na kontaktuar.</p>
-      </header>
-
-      <div class="row" style="margin:10px 0 6px">
-        <div class="chip">
-          📧 <a id="email-link" href="mailto:contaktmyworking@gmail.com">contaktmyworking@gmail.com</a>
-        </div>
-        <!-- Vendos numrin tënd italian këtu (p.sh. 393331112233) -->
-        <div class="chip">
-          📱 <a id="wa-link" href="https://wa.me/393XXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
-      </div>
-
-      <div class="actions">
-        <button class="btn close" id="closeContact">Mbyll</button>
-      </div>
-    </div>
+<section id="services">
+  <h2 id="servicesTitle">Shërbimet</h2>
+  <div class="services">
+    <div class="card"><h3 id="s1">Krijim Faqesh Web</h3></div>
+    <div class="card"><h3 id="s2">Mirëmbajtje</h3></div>
+    <div class="card"><h3 id="s3">SEO & Marketing</h3></div>
   </div>
+</section>
 
-  <script>
-    /* --- Përkthimet --- */
-    const t = {
-      sq:{title:"Mirësevini në faqen time!",subtitle:"Krijoj faqe interneti moderne dhe profesionale",
-          navAbout:"Rreth Nesh",navServices:"Shërbimet",navPortfolio:"Portfolio",navContact:"Kontakto",
-          aboutTitle:"Rreth Nesh",
-          aboutText:"Ne jemi një ekip i apasionuar pas teknologjisë dhe krijimit të faqeve të internetit. Ndihmojmë individë dhe biznese të kenë prezencë online profesionale.",
-          servicesTitle:"Shërbimet",
-          s1t:"Krijim Faqe Web", s1d:"Faqe të bukura, të shpejta dhe funksionale për çdo nevojë.",
-          s2t:"Mirëmbajtje",      s2d:"Mbajmë faqen tuaj të përditësuar dhe të sigurt në çdo kohë.",
-          s3t:"Këshillim",        s3d:"Ofrojmë udhëzime për të zgjedhur zgjidhjen më të mirë online.",
-          portTitle:"Portfolio", p1t:"Projekti 1", p1d:"Shembull i një faqe interneti të krijuar.",
-          p2t:"Projekti 2", p2d:"Shembull i një dizajni modern.",
-          contactTitle:"Kontakto", contactDesc:"Zgjidh mënyrën e preferuar për të na kontaktuar.",
-          footer:"© 2025 Faqja Ime | Të gjitha të drejtat e rezervuara",
-          emailLabel:"📧", waLabel:"📱 WhatsApp",
-      },
-      en:{title:"Welcome to my website!",subtitle:"I create modern and professional websites",
-          navAbout:"About Us",navServices:"Services",navPortfolio:"Portfolio",navContact:"Contact",
-          aboutTitle:"About Us",
-          aboutText:"We are a team passionate about technology and web development. We help individuals and businesses build a strong online presence.",
-          servicesTitle:"Services",
-          s1t:"Website Creation", s1d:"Beautiful, fast, and functional websites for every need.",
-          s2t:"Maintenance",      s2d:"We keep your website updated and secure at all times.",
-          s3t:"Consulting",       s3d:"We provide guidance to choose the best online solutions.",
-          portTitle:"Portfolio", p1t:"Project 1", p1d:"Example of a created website.",
-          p2t:"Project 2", p2d:"Example of a modern design.",
-          contactTitle:"Contact", contactDesc:"Choose your preferred way to reach us.",
-          footer:"© 2025 My Website | All rights reserved",
-          emailLabel:"📧", waLabel:"📱 WhatsApp",
-      },
-      it:{title:"Benvenuti nel mio sito!",subtitle:"Creo siti web moderni e professionali",
-          navAbout:"Chi Siamo",navServices:"Servizi",navPortfolio:"Portfolio",navContact:"Contatto",
-          aboutTitle:"Chi Siamo",
-          aboutText:"Siamo un team appassionato di tecnologia e sviluppo web. Aiutiamo individui e aziende a costruire una presenza online professionale.",
-          servicesTitle:"Servizi",
-          s1t:"Creazione Siti Web", s1d:"Siti belli, veloci e funzionali per ogni esigenza.",
-          s2t:"Manutenzione",       s2d:"Manteniamo il tuo sito sempre aggiornato e sicuro.",
-          s3t:"Consulenza",         s3d:"Forniamo supporto per scegliere le migliori soluzioni online.",
-          portTitle:"Portfolio", p1t:"Progetto 1", p1d:"Esempio di un sito web creato.",
-          p2t:"Progetto 2", p2d:"Esempio di un design moderno.",
-          contactTitle:"Contatto", contactDesc:"Scegli il modo preferito per contattarci.",
-          footer:"© 2025 Il Mio Sito | Tutti i diritti riservati",
-          emailLabel:"📧", waLabel:"📱 WhatsApp",
-      }
-    };
+<section id="portfolio">
+  <h2 id="portfolioTitle">Portfolio</h2>
+  <div class="portfolio">
+    <div class="card">Shembull Faqe 1</div>
+    <div class="card">Shembull Faqe 2</div>
+    <div class="card">Shembull Faqe 3</div>
+  </div>
+</section>
 
-    function setLanguage(lang){
-      const L = t[lang];
-      document.getElementById("title").innerText = L.title;
-      document.getElementById("subtitle").innerText = L.subtitle;
-      document.getElementById("nav-about").innerText = L.navAbout;
-      document.getElementById("nav-services").innerText = L.navServices;
-      document.getElementById("nav-portfolio").innerText = L.navPortfolio;
-      document.getElementById("nav-contact").innerText = L.navContact;
+<section id="faq">
+  <h2 id="faqTitle">Pyetje të Shpeshta</h2>
+  <div class="faq" id="faqContent"></div>
+</section>
 
-      document.getElementById("about-title").innerText = L.aboutTitle;
-      document.getElementById("about-text").innerText = L.aboutText;
+<section id="contact">
+  <h2 id="contactTitle">Kontakt</h2>
+  <p id="contactText">Na kontakto për më shumë informacion.</p>
+  <button class="contact-btn" onclick="window.location.href='mailto:contaktmyworking@gmail.com'">📧 Email</button>
+  <button class="contact-btn" onclick="window.location.href='https://wa.me/393XXXXXXXXX'">📱 WhatsApp</button>
+</section>
 
-      document.getElementById("services-title").innerText = L.servicesTitle;
-      document.getElementById("service1-title").innerText = L.s1t;
-      document.getElementById("service1-text").innerText = L.s1d;
-      document.getElementById("service2-title").innerText = L.s2t;
-      document.getElementById("service2-text").innerText = L.s2d;
-      document.getElementById("service3-title").innerText = L.s3t;
-      document.getElementById("service3-text").innerText = L.s3d;
+<footer>
+  <p>© 2025 <span id="footerText">Faqja Ime</span>. Të gjitha të drejtat e rezervuara.</p>
+  <div class="social-links">
+    <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
+</footer>
 
-      document.getElementById("portfolio-title").innerText = L.portTitle;
-      document.getElementById("project1-title").innerText = L.p1t;
-      document.getElementById("project1-text").innerText = L.p1d;
-      document.getElementById("project2-title").innerText = L.p2t;
-      document.getElementById("project2-text").innerText = L.p2d;
-
-      document.getElementById("contact-title").innerText = L.contactTitle;
-      document.getElementById("contact-desc").innerText = L.contactDesc;
-      document.getElementById("footer").innerText = L.footer;
-
-      // Etiketa të vogla brenda modalit (nëse do ti përdorësh diku)
-      // mund t'i shtosh mbi linket
+<script>
+  const translations = {
+    sq: {
+      logo:"Faqja Ime", aboutTitle:"Rreth Nesh", aboutText:"Ne krijojmë faqe moderne interneti për individë dhe biznese.",
+      servicesTitle:"Shërbimet", s1:"Krijim Faqesh Web", s2:"Mirëmbajtje", s3:"SEO & Marketing",
+      portfolioTitle:"Portfolio", faqTitle:"Pyetje të Shpeshta",
+      faq:[
+        {q:"Sa kushton një faqe interneti?",a:"Çmimi varet nga kompleksi i faqes dhe kërkesat tuaja. Ofronim paketa të ndryshme."},
+        {q:"Sa kohë zgjat krijimi i faqes?",a:"Koha e dorëzimit ndryshon, zakonisht 1-4 javë, sipas projektit."},
+        {q:"A ofroni mirëmbajtje pas krijimit?",a:"Po, ofrojmë shërbime mirëmbajtjeje për të mbajtur faqen të sigurt dhe të përditësuar."},
+        {q:"A mund të bëhet faqja në shumë gjuhë?",a:"Po, faqet tona mund të përfshijnë shumë gjuhë sipas kërkesës."}
+      ],
+      contactTitle:"Kontakt", contactText:"Na kontakto për më shumë informacion.", footer:"Faqja Ime"
+    },
+    en: {
+      logo:"My Working", aboutTitle:"About Us", aboutText:"We create modern websites for individuals and businesses.",
+      servicesTitle:"Services", s1:"Website Creation", s2:"Maintenance", s3:"SEO & Marketing",
+      portfolioTitle:"Portfolio", faqTitle:"Frequently Asked Questions",
+      faq:[
+        {q:"How much does a website cost?",a:"The price depends on the complexity of the website and your requirements. We offer different packages."},
+        {q:"How long does it take to create a website?",a:"Delivery time varies, usually 1-4 weeks depending on the project."},
+        {q:"Do you offer maintenance after creation?",a:"Yes, we offer maintenance services to keep your website secure and updated."},
+        {q:"Can the website be in multiple languages?",a:"Yes, our websites can include multiple languages as requested."}
+      ],
+      contactTitle:"Contact", contactText:"Contact us for more information.", footer:"My Working"
+    },
+    it: {
+      logo:"My Working", aboutTitle:"Chi Siamo", aboutText:"Creiamo siti web moderni per privati e aziende.",
+      servicesTitle:"Servizi", s1:"Creazione Siti Web", s2:"Manutenzione", s3:"SEO & Marketing",
+      portfolioTitle:"Portfolio", faqTitle:"Domande Frequenti",
+      faq:[
+        {q:"Quanto costa un sito web?",a:"Il prezzo dipende dalla complessità del sito e dalle tue esigenze. Offriamo diversi pacchetti."},
+        {q:"Quanto tempo serve per creare un sito web?",a:"Il tempo di consegna varia, di solito 1-4 settimane a seconda del progetto."},
+        {q:"Offrite manutenzione dopo la creazione?",a:"Sì, offriamo servizi di manutenzione per mantenere il sito sicuro e aggiornato."},
+        {q:"Il sito può essere multilingue?",a:"Sì, i nostri siti possono includere più lingue su richiesta."}
+      ],
+      contactTitle:"Contatto", contactText:"Contattaci per maggiori informazioni.", footer:"My Working"
     }
+  };
 
-    /* --- Modal logjika --- */
-    const modal = document.getElementById('contactModal');
-    const openButtons = [document.getElementById('nav-contact'), document.getElementById('contact-cta')];
-    const closeBtn = document.getElementById('closeContact');
+  function setLanguage(lang){
+    document.getElementById("logoText").innerText=translations[lang].logo;
+    document.getElementById("aboutTitle").innerText=translations[lang].aboutTitle;
+    document.getElementById("aboutText").innerText=translations[lang].aboutText;
+    document.getElementById("servicesTitle").innerText=translations[lang].servicesTitle;
+    document.getElementById("s1").innerText=translations[lang].s1;
+    document.getElementById("s2").innerText=translations[lang].s2;
+    document.getElementById("s3").innerText=translations[lang].s3;
+    document.getElementById("portfolioTitle").innerText=translations[lang].portfolioTitle;
+    document.getElementById("faqTitle").innerText=translations[lang].faqTitle;
+    document.getElementById("contactTitle").innerText=translations[lang].contactTitle;
+    document.getElementById("contactText").innerText=translations[lang].contactText;
+    document.getElementById("footerText").innerText=translations[lang].footer;
 
-    openButtons.forEach(btn => btn.addEventListener('click', () => {
-      modal.style.display = 'flex';
-    }));
-    closeBtn.addEventListener('click', () => modal.style.display = 'none');
-    modal.addEventListener('click', (e) => {
-      if(e.target === modal){ modal.style.display = 'none'; }
+    const faqContainer=document.getElementById("faqContent");
+    faqContainer.innerHTML="";
+    translations[lang].faq.forEach(item=>{
+      const faqItem=document.createElement("div");
+      faqItem.className="faq-item";
+      faqItem.innerHTML=`
+        <div class="faq-question">${item.q}</div>
+        <div class="faq-answer">${item.a}</div>`;
+      faqItem.querySelector(".faq-question").addEventListener("click",()=>{faqItem.classList.toggle("active");});
+      faqContainer.appendChild(faqItem);
     });
+  }
+  setLanguage("sq");
+</script>
 
-    /* Vendos gjuhën fillestare = shqip */
-    document.addEventListener('DOMContentLoaded', () => {
-      setLanguage('sq');
-    });
-
-    /* ⚠️ ZËVENDËSO numrin e WhatsApp me tëndin italian, p.sh. 393331112233 */
-    // document.getElementById('wa-link').href = 'https://wa.me/393331112233';
-  </script>
 </body>
 </html>
