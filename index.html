@@ -5,102 +5,61 @@
   <title>My Working</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    /* Reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
 
-    /* Header */
-    header { 
-      background: #1a73e8; 
-      color: white; 
-      padding: 15px 30px; 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-      position: fixed; 
-      top: 0; 
-      width: 100%; 
-      z-index: 1000;
+    header {
+      background: #1a73e8; color: white; padding: 15px 30px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: fixed; top: 0; width: 100%; z-index: 1000;
     }
     header h1 { font-size: 24px; }
     nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
     nav a:hover { text-decoration: underline; }
+    .languages button {
+      margin-left: 5px; padding: 5px 10px; border: none;
+      background: white; color: #1a73e8; border-radius: 5px; cursor: pointer;
+    }
 
-    /* Hero */
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                  url("https://picsum.photos/1200/600?random=1") no-repeat center/cover;
-      color: white;
-      text-align: center;
-      padding: 120px 20px;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        url("https://picsum.photos/1200/600?random=1") no-repeat center/cover;
+      color: white; text-align: center; padding: 120px 20px;
     }
     .hero h2 { font-size: 48px; margin-bottom: 20px; }
     .hero p { font-size: 20px; margin-bottom: 30px; }
     .hero a {
-      background: #ff9800; 
-      color: white; 
-      padding: 12px 25px; 
-      border-radius: 5px; 
-      text-decoration: none;
-      font-weight: bold;
+      background: #ff9800; color: white; padding: 12px 25px; border-radius: 5px;
+      text-decoration: none; font-weight: bold;
     }
 
-    /* Sections */
     section { padding: 80px 20px; max-width: 1100px; margin: auto; }
     h2 { text-align: center; font-size: 32px; margin-bottom: 40px; }
 
-    /* About */
     #about p { text-align: center; font-size: 18px; max-width: 800px; margin: auto; }
 
-    /* Services */
     .services { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-    .card { 
-      background: #fff; 
-      border: 1px solid #ddd; 
-      border-radius: 10px; 
-      padding: 30px; 
-      width: 300px; 
-      text-align: center; 
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    .card {
+      background: #fff; border: 1px solid #ddd; border-radius: 10px;
+      padding: 30px; width: 300px; text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
     .card h3 { margin-bottom: 15px; color: #1a73e8; }
 
-    /* Portfolio */
     .portfolio { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-    .portfolio img { width: 300px; height: 200px; object-fit: cover; border-radius: 10px; transition: transform 0.3s; }
+    .portfolio img {
+      width: 300px; height: 200px; object-fit: cover; border-radius: 10px;
+      transition: transform 0.3s;
+    }
     .portfolio img:hover { transform: scale(1.05); }
 
-    /* Contact */
-    .contact form { 
-      max-width: 600px; 
-      margin: auto; 
-      display: flex; 
-      flex-direction: column; 
-      gap: 15px; 
-    }
-    .contact input, .contact textarea { 
-      padding: 12px; 
-      border: 1px solid #ccc; 
-      border-radius: 5px; 
-      font-size: 16px; 
-    }
-    .contact button { 
-      background: #1a73e8; 
-      color: white; 
-      border: none; 
-      padding: 12px; 
-      border-radius: 5px; 
-      font-size: 18px; 
-      cursor: pointer; 
-    }
-    .contact button:hover { background: #155ab6; }
+    .contact { text-align: center; }
+    .contact p { font-size: 18px; margin: 10px 0; }
 
-    /* Footer */
     footer { background: #222; color: white; text-align: center; padding: 20px; }
     .social a { color: white; margin: 0 10px; text-decoration: none; font-size: 18px; }
     .social a:hover { color: #1a73e8; }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .services, .portfolio { flex-direction: column; align-items: center; }
       .hero h2 { font-size: 32px; }
@@ -111,51 +70,58 @@
 
   <!-- Header -->
   <header>
-    <h1>My Working</h1>
+    <h1 id="logo">My Working</h1>
     <nav>
-      <a href="#about">Rreth Nesh</a>
-      <a href="#services">Shërbimet</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact">Kontakto</a>
+      <a href="#about" id="nav-about">Rreth Nesh</a>
+      <a href="#services" id="nav-services">Shërbimet</a>
+      <a href="#portfolio" id="nav-portfolio">Portfolio</a>
+      <a href="#contact" id="nav-contact">Kontakto</a>
     </nav>
+    <div class="languages">
+      <button onclick="changeLang('sq')">SQ</button>
+      <button onclick="changeLang('en')">EN</button>
+      <button onclick="changeLang('it')">IT</button>
+    </div>
   </header>
 
   <!-- Hero -->
   <div class="hero">
-    <h2>Krijojmë faqet që punojnë për ju</h2>
-    <p>Faqe moderne, të shpejta dhe profesionale për biznesin tuaj</p>
-    <a href="#contact">Kontakto tani</a>
+    <h2 id="hero-title">Krijojmë faqet që punojnë për ju</h2>
+    <p id="hero-text">Faqe moderne, të shpejta dhe profesionale për biznesin tuaj</p>
+    <a href="#contact" id="hero-button">Kontakto tani</a>
   </div>
 
   <!-- About -->
   <section id="about">
-    <h2>Rreth Nesh</h2>
-    <p>Ne jemi një ekip i apasionuar që ndërton faqe interneti profesionale, moderne dhe funksionale. 
-    Qëllimi ynë është t’ju ndihmojmë të prezantoheni sa më bukur online dhe të gjeneroni klientë të rinj.</p>
+    <h2 id="about-title">Rreth Nesh</h2>
+    <p id="about-text">
+      Ne jemi një ekip i apasionuar që ndërton faqe interneti profesionale, moderne dhe funksionale.
+      Qëllimi ynë është t’ju ndihmojmë të prezantoheni sa më bukur online dhe të gjeneroni klientë të rinj.
+    </p>
   </section>
 
   <!-- Services -->
   <section id="services">
-    <h2>Shërbimet</h2>
+    <h2 id="services-title">Shërbimet</h2>
     <div class="services">
       <div class="card">
-        <h3>Krijim faqesh interneti</h3>
-        <p>Zhvillim i faqeve moderne dhe responsive për çdo biznes.</p>
+        <h3 id="service1">Krijim faqesh interneti</h3>
+        <p id="service1-text">Zhvillim i faqeve moderne dhe responsive për çdo biznes.</p>
       </div>
       <div class="card">
-        <h3>Mirëmbajtje</h3>
-        <p>Suport i vazhdueshëm dhe azhurnime për faqen tuaj.</p>
+        <h3 id="service2">Mirëmbajtje</h3>
+        <p id="service2-text">Suport i vazhdueshëm dhe azhurnime për faqen tuaj.</p>
       </div>
       <div class="card">
-        <h3>Optimizim SEO</h3>
-        <p>Rrisim dukshmërinë tuaj në Google dhe motorë të tjerë kërkimi.</p>
+        <h3 id="service3">Optimizim SEO</h3>
+        <p id="service3-text">Rrisim dukshmërinë tuaj në Google dhe motorë të tjerë kërkimi.</p>
       </div>
     </div>
   </section>
 
   <!-- Portfolio -->
   <section id="portfolio">
-    <h2>Portfolio</h2>
+    <h2 id="portfolio-title">Portfolio</h2>
     <div class="portfolio">
       <img src="https://picsum.photos/300/200?random=2" alt="Projekt 1">
       <img src="https://picsum.photos/300/200?random=3" alt="Projekt 2">
@@ -165,14 +131,10 @@
 
   <!-- Contact -->
   <section id="contact">
-    <h2>Kontakto</h2>
+    <h2 id="contact-title">Kontakto</h2>
     <div class="contact">
-      <form action="https://formspree.io/f/your-form-id" method="POST">
-        <input type="text" name="name" placeholder="Emri juaj" required>
-        <input type="email" name="email" placeholder="Email juaj" required>
-        <textarea name="message" rows="5" placeholder="Mesazhi juaj" required></textarea>
-        <button type="submit">Dërgo</button>
-      </form>
+      <p>Email: <a href="mailto:contactmyworking@gmail.com">contactmyworking@gmail.com</a></p>
+      <p>WhatsApp: <a href="https://wa.me/ target="_blank"></a></p>
     </div>
   </section>
 
@@ -182,10 +144,100 @@
     <div class="social">
       <a href="#">Instagram</a>
       <a href="#">Facebook</a>
-      <a href="#">LinkedIn</a>
       <a href="#">TikTok</a>
     </div>
   </footer>
+
+  <!-- Script për gjuhët -->
+  <script>
+    const content = {
+      sq: {
+        logo: "My Working",
+        navAbout: "Rreth Nesh",
+        navServices: "Shërbimet",
+        navPortfolio: "Portfolio",
+        navContact: "Kontakto",
+        heroTitle: "Krijojmë faqet që punojnë për ju",
+        heroText: "Faqe moderne, të shpejta dhe profesionale për biznesin tuaj",
+        heroButton: "Kontakto tani",
+        aboutTitle: "Rreth Nesh",
+        aboutText: "Ne jemi një ekip i apasionuar që ndërton faqe interneti profesionale, moderne dhe funksionale. Qëllimi ynë është t’ju ndihmojmë të prezantoheni sa më bukur online dhe të gjeneroni klientë të rinj.",
+        servicesTitle: "Shërbimet",
+        service1: "Krijim faqesh interneti",
+        service1Text: "Zhvillim i faqeve moderne dhe responsive për çdo biznes.",
+        service2: "Mirëmbajtje",
+        service2Text: "Suport i vazhdueshëm dhe azhurnime për faqen tuaj.",
+        service3: "Optimizim SEO",
+        service3Text: "Rrisim dukshmërinë tuaj në Google dhe motorë të tjerë kërkimi.",
+        portfolioTitle: "Portfolio",
+        contactTitle: "Kontakto"
+      },
+      en: {
+        logo: "My Working",
+        navAbout: "About Us",
+        navServices: "Services",
+        navPortfolio: "Portfolio",
+        navContact: "Contact",
+        heroTitle: "We create websites that work for you",
+        heroText: "Modern, fast and professional websites for your business",
+        heroButton: "Contact now",
+        aboutTitle: "About Us",
+        aboutText: "We are a passionate team that builds professional, modern and functional websites. Our goal is to help you look great online and attract new clients.",
+        servicesTitle: "Services",
+        service1: "Website Development",
+        service1Text: "Building modern and responsive websites for any business.",
+        service2: "Maintenance",
+        service2Text: "Ongoing support and updates for your site.",
+        service3: "SEO Optimization",
+        service3Text: "Increase your visibility on Google and other search engines.",
+        portfolioTitle: "Portfolio",
+        contactTitle: "Contact"
+      },
+      it: {
+        logo: "My Working",
+        navAbout: "Chi siamo",
+        navServices: "Servizi",
+        navPortfolio: "Portfolio",
+        navContact: "Contatti",
+        heroTitle: "Creiamo siti web che lavorano per te",
+        heroText: "Siti moderni, veloci e professionali per la tua attività",
+        heroButton: "Contattaci ora",
+        aboutTitle: "Chi siamo",
+        aboutText: "Siamo un team appassionato che realizza siti web professionali, moderni e funzionali. Il nostro obiettivo è aiutarti a presentarti al meglio online e ad attrarre nuovi clienti.",
+        servicesTitle: "Servizi",
+        service1: "Creazione siti web",
+        service1Text: "Sviluppo di siti moderni e responsive per ogni attività.",
+        service2: "Manutenzione",
+        service2Text: "Supporto continuo e aggiornamenti per il tuo sito.",
+        service3: "Ottimizzazione SEO",
+        service3Text: "Aumenta la tua visibilità su Google e altri motori di ricerca.",
+        portfolioTitle: "Portfolio",
+        contactTitle: "Contatti"
+      }
+    };
+
+    function changeLang(lang) {
+      document.getElementById("logo").innerText = content[lang].logo;
+      document.getElementById("nav-about").innerText = content[lang].navAbout;
+      document.getElementById("nav-services").innerText = content[lang].navServices;
+      document.getElementById("nav-portfolio").innerText = content[lang].navPortfolio;
+      document.getElementById("nav-contact").innerText = content[lang].navContact;
+      document.getElementById("hero-title").innerText = content[lang].heroTitle;
+      document.getElementById("hero-text").innerText = content[lang].heroText;
+      document.getElementById("hero-button").innerText = content[lang].heroButton;
+      document.getElementById("about-title").innerText = content[lang].aboutTitle;
+      document.getElementById("about-text").innerText = content[lang].aboutText;
+      document.getElementById("services-title").innerText = content[lang].servicesTitle;
+      document.getElementById("service1").innerText = content[lang].service1;
+      document.getElementById("service1-text").innerText = content[lang].service1Text;
+      document.getElementById("service2").innerText = content[lang].service2;
+      document.getElementById("service2-text").innerText = content[lang].service2Text;
+      document.getElementById("service3").innerText = content[lang].service3;
+      document.getElementById("service3-text").innerText = content[lang].service3Text;
+      document.getElementById("portfolio-title").innerText = content[lang].portfolioTitle;
+      document.getElementById("contact-title").innerText = content[lang].contactTitle;
+    }
+  </script>
 
 </body>
 </html>
