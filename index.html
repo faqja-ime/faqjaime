@@ -20,12 +20,10 @@
     header h1 {
       font-size: 48px;
       margin: 0;
-      animation: fadeIn 2s ease-in-out;
     }
     header p {
       font-size: 20px;
       margin-top: 10px;
-      animation: fadeIn 3s ease-in-out;
     }
     nav {
       background: #333;
@@ -42,18 +40,35 @@
     nav a:hover {
       color: #ff6600;
     }
+    .lang-switch {
+      margin-top: 10px;
+    }
+    .lang-switch button {
+      margin: 0 5px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background: white;
+      color: #333;
+      font-weight: bold;
+    }
+    .lang-switch button:hover {
+      background: #ff6600;
+      color: white;
+    }
     section {
       padding: 60px 20px;
       max-width: 1000px;
       margin: auto;
     }
-    .services {
+    .services, .portfolio {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
     }
-    .service {
+    .service, .project {
       background: white;
       border-radius: 10px;
       padding: 20px;
@@ -62,11 +77,16 @@
       text-align: center;
       transition: transform 0.3s;
     }
-    .service:hover {
+    .service:hover, .project:hover {
       transform: translateY(-5px);
     }
-    .service h3 {
+    .service h3, .project h3 {
       color: #007bff;
+    }
+    .project img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
     }
     footer {
       background: #333;
@@ -75,12 +95,8 @@
       padding: 20px;
       margin-top: 40px;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    button {
-      background: #ff6600;
+    button.contact {
+      background: #25D366;
       border: none;
       padding: 10px 20px;
       border-radius: 5px;
@@ -89,50 +105,52 @@
       cursor: pointer;
       transition: background 0.3s;
     }
-    button:hover {
-      background: #e65c00;
+    button.contact:hover {
+      background: #1ebe57;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Mirësevini në faqen time!</h1>
-    <p>Krijoj faqe interneti moderne dhe profesionale</p>
+    <h1 id="title">Mirësevini në faqen time!</h1>
+    <p id="subtitle">Krijoj faqe interneti moderne dhe profesionale</p>
+    <div class="lang-switch">
+      <button onclick="setLanguage('sq')">SQ</button>
+      <button onclick="setLanguage('en')">EN</button>
+      <button onclick="setLanguage('it')">IT</button>
+    </div>
   </header>
 
   <nav>
-    <a href="#about">Rreth Nesh</a>
-    <a href="#services">Shërbimet</a>
-    <a href="#contact">Kontakto</a>
+    <a href="#about" id="nav-about">Rreth Nesh</a>
+    <a href="#services" id="nav-services">Shërbimet</a>
+    <a href="#portfolio" id="nav-portfolio">Portfolio</a>
+    <a href="#contact" id="nav-contact">Kontakto</a>
   </nav>
 
   <section id="about">
-    <h2>Rreth Nesh</h2>
-    <p>Ne jemi një ekip i apasionuar pas teknologjisë dhe krijimit të faqeve të internetit.
-       Ndihmojmë individë dhe biznese të kenë prezencë online profesionale.</p>
+    <h2 id="about-title">Rreth Nesh</h2>
+    <p id="about-text">Ne jemi një ekip i apasionuar pas teknologjisë dhe krijimit të faqeve të internetit. Ndihmojmë individë dhe biznese të kenë prezencë online profesionale.</p>
   </section>
 
   <section id="services">
-    <h2>Shërbimet</h2>
+    <h2 id="services-title">Shërbimet</h2>
     <div class="services">
       <div class="service">
-        <h3>Krijim Faqe Web</h3>
-        <p>Faqe të bukura, të shpejta dhe funksionale për çdo nevojë.</p>
+        <h3 id="service1-title">Krijim Faqe Web</h3>
+        <p id="service1-text">Faqe të bukura, të shpejta dhe funksionale për çdo nevojë.</p>
       </div>
       <div class="service">
-        <h3>Mirëmbajtje</h3>
-        <p>Mbajmë faqen tuaj të përditësuar dhe të sigurt në çdo kohë.</p>
+        <h3 id="service2-title">Mirëmbajtje</h3>
+        <p id="service2-text">Mbajmë faqen tuaj të përditësuar dhe të sigurt në çdo kohë.</p>
       </div>
       <div class="service">
-        <h3>Këshillim</h3>
-        <p>Ofrojmë udhëzime për të zgjedhur zgjidhjen më të mirë online.</p>
+        <h3 id="service3-title">Këshillim</h3>
+        <p id="service3-text">Ofrojmë udhëzime për të zgjedhur zgjidhjen më të mirë online.</p>
       </div>
     </div>
   </section>
 
-<section id="contact">
-  <h2>Kontakto</h2>
-  <p>Për të mësuar më shumë, kliko butonin më poshtë:</p>
-  <button disabled>Kontakti do hapet së shpejti</button>
-</section>
+  <section id="portfolio">
+    <h2 id="portfolio-title">Portfolio</h2>
