@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8">
+  <title>Biznesi im - Krijim Faqesh Web</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 40px;
+      text-align: center;
+      position: relative;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 40px;
+    }
+    header p {
+      font-size: 20px;
+    }
+    .lang-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .lang-switch button {
+      margin-left: 5px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .services {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px;
+      flex-wrap: wrap;
+    }
+    .service {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 200px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .service h3 {
+      color: #2c3e50;
+    }
+    .about, .contact {
+      padding: 40px;
+      text-align: center;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #e67e22;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    .btn:hover {
+      background-color: #d35400;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="lang-switch">
+      <button onclick="setLang('sq')">Shqip</button>
+      <button onclick="setLang('en')">English</button>
+    </div>
+    <h1 id="hero-title">Krijim Faqesh Web Profesionale</h1>
+    <p id="hero-sub">Unë ndërtoj dhe menaxhoj faqe web për biznesin tuaj</p>
+  </header>
+
+  <section class="services">
+    <div class="service">
+      <h3 id="service1-title">Krijim Faqe Web</h3>
+      <p id="service1-desc">Faqe moderne, të shpejta dhe të sigurta.</p>
+    </div>
+    <div class="service">
+      <h3 id="service2-title">Menaxhim</h3>
+      <p id="service2-desc">Mbaj faqen tuaj gjithmonë të përditësuar.</p>
+    </div>
+    <div class="service">
+      <h3 id="service3-title">SEO</h3>
+      <p id="service3-desc">Ndihmoj që faqja juaj të dalë në Google.</p>
+    </div>
+  </section>
+
+  <section class="about">
+    <h2 id="about-title">Rreth meje</h2>
+    <p id="about-text">Jam Jemine, një krijuese faqesh web që punoj me pasion për të ndihmuar individë dhe biznese të kenë prezencë profesionale online. Ofron zgjidhje të thjeshta, praktike dhe të përshtatura për çdo klient. Qëllimi im është të bëj faqet tuaja të internetit të bukura, të shpejta dhe të lehta për t’u përdorur.</p>
+  </section>
+
+  <section class="contact">
+    <h2 id="contact-title">Kontakto</h2>
+    <p id="contact-text">Nëse dëshironi një faqe web ose menaxhim profesional, më kontaktoni këtu:</p>
+    <a href="mailto:domijemine8@gmail.com" class="btn" id="contact-btn">Dërgo Email</a>
+  </section>
+
+  <script>
+    const translations = {
+      sq: {
+        "hero-title": "Krijim Faqesh Web Profesionale",
+        "hero-sub": "Unë ndërtoj dhe menaxhoj faqe web për biznesin tuaj",
+        "service1-title": "Krijim Faqe Web",
+        "service1-desc": "Faqe moderne, të shpejta dhe të sigurta.",
+        "service2-title": "Menaxhim",
+        "service2-desc": "Mbaj faqen tuaj gjithmonë të përditësuar.",
+        "service3-title": "SEO",
+        "service3-desc": "Ndihmoj që faqja juaj të dalë në Google.",
+        "about-title": "Rreth meje",
+        "about-text": "Jam Jemine, një krijuese faqesh web që punoj me pasion për të ndihmuar individë dhe biznese të kenë prezencë profesionale online. Ofron zgjidhje të thjeshta, praktike dhe të përshtatura për çdo klient. Qëllimi im është të bëj faqet tuaja të internetit të bukura, të shpejta dhe të lehta për t’u përdorur.",
+        "contact-title": "Kontakto",
+        "contact-text": "Nëse dëshironi një faqe web ose menaxhim profesional, më kontaktoni këtu:",
+        "contact-btn": "Dërgo Email"
+      },
+      en: {
+        "hero-title": "Professional Website Creation",
+        "hero-sub": "I design and manage websites for your business",
+        "service1-title": "Website Development",
+        "service1-desc": "Modern, fast, and secure websites.",
+        "service2-title": "Management",
+        "service2-desc": "Keep your website always updated.",
+        "service3-title": "SEO",
+        "service3-desc": "Helping your site appear on Google.",
+        "about-title": "About Me",
+        "about-text": "I am Jemine, a web creator passionate about helping individuals and businesses build a professional online presence. I offer simple, practical, and customized solutions for every client. My goal is to make your websites beautiful, fast, and easy to use.",
+        "contact-title": "Contact",
+        "contact-text": "If you want a professional website or reliable management, contact me here:",
+        "contact-btn": "Send Email"
+      }
+    };
+
+    function setLang(lang) {
+      for (let key in translations[lang]) {
+        document.getElementById(key).textContent = translations[lang][key];
+      }
+    }
+  </script>
+
+</body>
+</html>
