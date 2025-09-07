@@ -1,120 +1,87 @@
 <!DOCTYPE html>
 <html lang="sq">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Faqja Ime</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
+    :root{
+      --primary:#007bff; --accent:#ff6600; --dark:#333; --light:#f9f9f9; --ok:#25D366;
     }
-    header {
-      background: linear-gradient(135deg, #007bff, #ff6600);
-      color: white;
-      text-align: center;
-      padding: 80px 20px;
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--light);color:#333}
+    header{
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      color:#fff;text-align:center;padding:80px 20px;
     }
-    header h1 {
-      font-size: 48px;
-      margin: 0;
+    header h1{margin:0;font-size:48px}
+    header p{margin:10px 0 0;font-size:20px}
+    .lang-switch{margin-top:14px}
+    .lang-switch button{
+      margin:0 5px;padding:6px 12px;border:none;border-radius:6px;
+      background:#fff;color:#333;font-weight:bold;cursor:pointer
     }
-    header p {
-      font-size: 20px;
-      margin-top: 10px;
+    .lang-switch button:hover{background:var(--accent);color:#fff}
+
+    nav{background:var(--dark);padding:10px;text-align:center;position:sticky;top:0;z-index:10}
+    nav a, nav button{
+      color:#fff;margin:0 14px;text-decoration:none;font-weight:bold;
+      background:none;border:none;cursor:pointer;font-size:16px
     }
-    nav {
-      background: #333;
-      padding: 10px;
-      text-align: center;
+    nav a:hover, nav button:hover{color:var(--accent)}
+
+    section{padding:60px 20px;max-width:1000px;margin:auto}
+    .services,.portfolio{
+      display:flex;flex-wrap:wrap;gap:20px;justify-content:center
     }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
+    .card{
+      background:#fff;border-radius:12px;padding:20px;
+      box-shadow:0 4px 10px rgba(0,0,0,.08);
+      flex:1 1 260px;max-width:320px;text-align:center;
+      transition:transform .3s
     }
-    nav a:hover {
-      color: #ff6600;
+    .card:hover{transform:translateY(-6px)}
+    .card h3{color:var(--primary);margin-top:6px}
+
+    .project img{width:100%;border-radius:8px;margin-bottom:10px}
+
+    footer{background:#222;color:#fff;text-align:center;padding:20px;margin-top:40px}
+    .btn{
+      display:inline-block;background:var(--accent);color:#fff;border:none;
+      padding:10px 18px;border-radius:8px;cursor:pointer;font-size:16px
     }
-    .lang-switch {
-      margin-top: 10px;
+    .btn:hover{filter:brightness(.95)}
+    .btn-whatsapp{background:var(--ok)}
+    .tagline{opacity:.95}
+
+    /* Modal (dritarja e kontaktit) */
+    .modal-backdrop{
+      position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;
+      align-items:center;justify-content:center;padding:20px;z-index:50
     }
-    .lang-switch button {
-      margin: 0 5px;
-      padding: 5px 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      background: white;
-      color: #333;
-      font-weight: bold;
+    .modal{
+      background:#fff;border-radius:16px;max-width:520px;width:100%;
+      padding:24px;box-shadow:0 10px 30px rgba(0,0,0,.2);animation:pop .2s ease-out
     }
-    .lang-switch button:hover {
-      background: #ff6600;
-      color: white;
+    .modal header{padding:0;background:none;color:#333;text-align:left}
+    .modal h3{margin:0 0 8px 0}
+    .modal p{margin:0 0 16px 0;color:#555}
+    .modal .row{display:flex;gap:10px;flex-wrap:wrap}
+    .modal .chip{
+      background:#f1f1f1;border-radius:10px;padding:10px 12px;display:inline-flex;
+      align-items:center;gap:8px
     }
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .services, .portfolio {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .service, .project {
-      background: white;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      flex: 1 1 250px;
-      text-align: center;
-      transition: transform 0.3s;
-    }
-    .service:hover, .project:hover {
-      transform: translateY(-5px);
-    }
-    .service h3, .project h3 {
-      color: #007bff;
-    }
-    .project img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
-    footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-    button.contact {
-      background: #25D366;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    button.contact:hover {
-      background: #1ebe57;
-    }
+    .modal .chip a{color:#0a58ca;text-decoration:none}
+    .modal .actions{margin-top:14px;display:flex;gap:10px;justify-content:flex-end}
+    .close{background:#eee;color:#333}
+    @keyframes pop{from{transform:scale(.97);opacity:0}to{transform:scale(1);opacity:1}}
   </style>
 </head>
 <body>
 
   <header>
     <h1 id="title">Mirësevini në faqen time!</h1>
-    <p id="subtitle">Krijoj faqe interneti moderne dhe profesionale</p>
+    <p id="subtitle" class="tagline">Krijoj faqe interneti moderne dhe profesionale</p>
     <div class="lang-switch">
       <button onclick="setLanguage('sq')">SQ</button>
       <button onclick="setLanguage('en')">EN</button>
@@ -126,26 +93,30 @@
     <a href="#about" id="nav-about">Rreth Nesh</a>
     <a href="#services" id="nav-services">Shërbimet</a>
     <a href="#portfolio" id="nav-portfolio">Portfolio</a>
-    <a href="#contact" id="nav-contact">Kontakto</a>
+    <!-- “Kontakto” tani hap modal-in me kontaktet -->
+    <button id="nav-contact">Kontakto</button>
   </nav>
 
   <section id="about">
     <h2 id="about-title">Rreth Nesh</h2>
-    <p id="about-text">Ne jemi një ekip i apasionuar pas teknologjisë dhe krijimit të faqeve të internetit. Ndihmojmë individë dhe biznese të kenë prezencë online profesionale.</p>
+    <p id="about-text">
+      Ne jemi një ekip i apasionuar pas teknologjisë dhe krijimit të faqeve të internetit.
+      Ndihmojmë individë dhe biznese të kenë prezencë online profesionale.
+    </p>
   </section>
 
   <section id="services">
     <h2 id="services-title">Shërbimet</h2>
     <div class="services">
-      <div class="service">
+      <div class="card">
         <h3 id="service1-title">Krijim Faqe Web</h3>
         <p id="service1-text">Faqe të bukura, të shpejta dhe funksionale për çdo nevojë.</p>
       </div>
-      <div class="service">
+      <div class="card">
         <h3 id="service2-title">Mirëmbajtje</h3>
         <p id="service2-text">Mbajmë faqen tuaj të përditësuar dhe të sigurt në çdo kohë.</p>
       </div>
-      <div class="service">
+      <div class="card">
         <h3 id="service3-title">Këshillim</h3>
         <p id="service3-text">Ofrojmë udhëzime për të zgjedhur zgjidhjen më të mirë online.</p>
       </div>
@@ -154,3 +125,153 @@
 
   <section id="portfolio">
     <h2 id="portfolio-title">Portfolio</h2>
+    <div class="portfolio">
+      <div class="card project">
+        <img src="https://via.placeholder.com/300x200" alt="Projekt 1">
+        <h3 id="project1-title">Projekti 1</h3>
+        <p id="project1-text">Shembull i një faqe interneti të krijuar.</p>
+      </div>
+      <div class="card project">
+        <img src="https://via.placeholder.com/300x200" alt="Projekt 2">
+        <h3 id="project2-title">Projekti 2</h3>
+        <p id="project2-text">Shembull i një dizajni modern.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:16px">
+      <!-- Buton alternativ kontakti poshtë faqes -->
+      <button class="btn btn-whatsapp" id="contact-cta">📱 WhatsApp</button>
+    </div>
+  </section>
+
+  <footer>
+    <p id="footer">© 2025 Faqja Ime | Të gjitha të drejtat e rezervuara</p>
+  </footer>
+
+  <!-- MODAL: Kontakti -->
+  <div class="modal-backdrop" id="contactModal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+      <header>
+        <h3 id="contact-title">Kontakto</h3>
+        <p id="contact-desc">Zgjidh mënyrën e preferuar për të na kontaktuar.</p>
+      </header>
+
+      <div class="row" style="margin:10px 0 6px">
+        <div class="chip">
+          📧 <a id="email-link" href="mailto:contaktmyworking@gmail.com">contaktmyworking@gmail.com</a>
+        </div>
+        <!-- Vendos numrin tënd italian këtu (p.sh. 393331112233) -->
+        <div class="chip">
+          📱 <a id="wa-link" href="https://wa.me/393XXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn close" id="closeContact">Mbyll</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* --- Përkthimet --- */
+    const t = {
+      sq:{title:"Mirësevini në faqen time!",subtitle:"Krijoj faqe interneti moderne dhe profesionale",
+          navAbout:"Rreth Nesh",navServices:"Shërbimet",navPortfolio:"Portfolio",navContact:"Kontakto",
+          aboutTitle:"Rreth Nesh",
+          aboutText:"Ne jemi një ekip i apasionuar pas teknologjisë dhe krijimit të faqeve të internetit. Ndihmojmë individë dhe biznese të kenë prezencë online profesionale.",
+          servicesTitle:"Shërbimet",
+          s1t:"Krijim Faqe Web", s1d:"Faqe të bukura, të shpejta dhe funksionale për çdo nevojë.",
+          s2t:"Mirëmbajtje",      s2d:"Mbajmë faqen tuaj të përditësuar dhe të sigurt në çdo kohë.",
+          s3t:"Këshillim",        s3d:"Ofrojmë udhëzime për të zgjedhur zgjidhjen më të mirë online.",
+          portTitle:"Portfolio", p1t:"Projekti 1", p1d:"Shembull i një faqe interneti të krijuar.",
+          p2t:"Projekti 2", p2d:"Shembull i një dizajni modern.",
+          contactTitle:"Kontakto", contactDesc:"Zgjidh mënyrën e preferuar për të na kontaktuar.",
+          footer:"© 2025 Faqja Ime | Të gjitha të drejtat e rezervuara",
+          emailLabel:"📧", waLabel:"📱 WhatsApp",
+      },
+      en:{title:"Welcome to my website!",subtitle:"I create modern and professional websites",
+          navAbout:"About Us",navServices:"Services",navPortfolio:"Portfolio",navContact:"Contact",
+          aboutTitle:"About Us",
+          aboutText:"We are a team passionate about technology and web development. We help individuals and businesses build a strong online presence.",
+          servicesTitle:"Services",
+          s1t:"Website Creation", s1d:"Beautiful, fast, and functional websites for every need.",
+          s2t:"Maintenance",      s2d:"We keep your website updated and secure at all times.",
+          s3t:"Consulting",       s3d:"We provide guidance to choose the best online solutions.",
+          portTitle:"Portfolio", p1t:"Project 1", p1d:"Example of a created website.",
+          p2t:"Project 2", p2d:"Example of a modern design.",
+          contactTitle:"Contact", contactDesc:"Choose your preferred way to reach us.",
+          footer:"© 2025 My Website | All rights reserved",
+          emailLabel:"📧", waLabel:"📱 WhatsApp",
+      },
+      it:{title:"Benvenuti nel mio sito!",subtitle:"Creo siti web moderni e professionali",
+          navAbout:"Chi Siamo",navServices:"Servizi",navPortfolio:"Portfolio",navContact:"Contatto",
+          aboutTitle:"Chi Siamo",
+          aboutText:"Siamo un team appassionato di tecnologia e sviluppo web. Aiutiamo individui e aziende a costruire una presenza online professionale.",
+          servicesTitle:"Servizi",
+          s1t:"Creazione Siti Web", s1d:"Siti belli, veloci e funzionali per ogni esigenza.",
+          s2t:"Manutenzione",       s2d:"Manteniamo il tuo sito sempre aggiornato e sicuro.",
+          s3t:"Consulenza",         s3d:"Forniamo supporto per scegliere le migliori soluzioni online.",
+          portTitle:"Portfolio", p1t:"Progetto 1", p1d:"Esempio di un sito web creato.",
+          p2t:"Progetto 2", p2d:"Esempio di un design moderno.",
+          contactTitle:"Contatto", contactDesc:"Scegli il modo preferito per contattarci.",
+          footer:"© 2025 Il Mio Sito | Tutti i diritti riservati",
+          emailLabel:"📧", waLabel:"📱 WhatsApp",
+      }
+    };
+
+    function setLanguage(lang){
+      const L = t[lang];
+      document.getElementById("title").innerText = L.title;
+      document.getElementById("subtitle").innerText = L.subtitle;
+      document.getElementById("nav-about").innerText = L.navAbout;
+      document.getElementById("nav-services").innerText = L.navServices;
+      document.getElementById("nav-portfolio").innerText = L.navPortfolio;
+      document.getElementById("nav-contact").innerText = L.navContact;
+
+      document.getElementById("about-title").innerText = L.aboutTitle;
+      document.getElementById("about-text").innerText = L.aboutText;
+
+      document.getElementById("services-title").innerText = L.servicesTitle;
+      document.getElementById("service1-title").innerText = L.s1t;
+      document.getElementById("service1-text").innerText = L.s1d;
+      document.getElementById("service2-title").innerText = L.s2t;
+      document.getElementById("service2-text").innerText = L.s2d;
+      document.getElementById("service3-title").innerText = L.s3t;
+      document.getElementById("service3-text").innerText = L.s3d;
+
+      document.getElementById("portfolio-title").innerText = L.portTitle;
+      document.getElementById("project1-title").innerText = L.p1t;
+      document.getElementById("project1-text").innerText = L.p1d;
+      document.getElementById("project2-title").innerText = L.p2t;
+      document.getElementById("project2-text").innerText = L.p2d;
+
+      document.getElementById("contact-title").innerText = L.contactTitle;
+      document.getElementById("contact-desc").innerText = L.contactDesc;
+      document.getElementById("footer").innerText = L.footer;
+
+      // Etiketa të vogla brenda modalit (nëse do ti përdorësh diku)
+      // mund t'i shtosh mbi linket
+    }
+
+    /* --- Modal logjika --- */
+    const modal = document.getElementById('contactModal');
+    const openButtons = [document.getElementById('nav-contact'), document.getElementById('contact-cta')];
+    const closeBtn = document.getElementById('closeContact');
+
+    openButtons.forEach(btn => btn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+    }));
+    closeBtn.addEventListener('click', () => modal.style.display = 'none');
+    modal.addEventListener('click', (e) => {
+      if(e.target === modal){ modal.style.display = 'none'; }
+    });
+
+    /* Vendos gjuhën fillestare = shqip */
+    document.addEventListener('DOMContentLoaded', () => {
+      setLanguage('sq');
+    });
+
+    /* ⚠️ ZËVENDËSO numrin e WhatsApp me tëndin italian, p.sh. 393331112233 */
+    // document.getElementById('wa-link').href = 'https://wa.me/393331112233';
+  </script>
+</body>
+</html>
