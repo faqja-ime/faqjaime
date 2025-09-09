@@ -3,78 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <title>My Working</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-
-    header {
-      background: #1a73e8; color: white; padding: 15px 30px;
-      display: flex; justify-content: space-between; align-items: center;
-      position: fixed; top: 0; width: 100%; z-index: 1000;
-    }
-    header h1 { font-size: 24px; }
-    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+    body { margin: 0; font-family: Arial, sans-serif; }
+    header { background: #1a73e8; color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+    header h1 { margin: 0; font-size: 24px; }
+    nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; }
     nav a:hover { text-decoration: underline; }
-    .languages button {
-      margin-left: 5px; padding: 5px 10px; border: none;
-      background: white; color: #1a73e8; border-radius: 5px; cursor: pointer;
-    }
-
-    .hero {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-        url("https://picsum.photos/1200/600?random=1") no-repeat center/cover;
-      color: white; text-align: center; padding: 120px 20px;
-    }
-    .hero h2 { font-size: 48px; margin-bottom: 20px; }
-    .hero p { font-size: 20px; margin-bottom: 30px; }
-    .hero a {
-      background: #ff9800; color: white; padding: 12px 25px; border-radius: 5px;
-      text-decoration: none; font-weight: bold;
-    }
-
-    section { padding: 80px 20px; max-width: 1100px; margin: auto; }
-    h2 { text-align: center; font-size: 32px; margin-bottom: 40px; }
-
-    #about p { text-align: center; font-size: 18px; max-width: 800px; margin: auto; }
-
-    .services { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-    .card {
-      background: #fff; border: 1px solid #ddd; border-radius: 10px;
-      padding: 30px; width: 300px; text-align: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    .card h3 { margin-bottom: 15px; color: #1a73e8; }
-
-    .portfolio { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-    .portfolio img {
-      width: 300px; height: 200px; object-fit: cover; border-radius: 10px;
-      transition: transform 0.3s;
-    }
-    .portfolio img:hover { transform: scale(1.05); }
-
+    .languages button { margin-left: 5px; padding: 5px 10px; border: none; background: white; color: #1a73e8; border-radius: 5px; cursor: pointer; }
+    .hero { text-align: center; padding: 80px 20px; background: #f0f4ff; }
+    .hero h2 { font-size: 40px; margin-bottom: 20px; }
+    .hero p { font-size: 18px; margin-bottom: 20px; }
+    .hero a { background: #1a73e8; color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; }
+    section { padding: 60px 20px; max-width: 1100px; margin: auto; }
+    h2 { text-align: center; font-size: 32px; margin-bottom: 30px; }
+    .services, .portfolio, .testimonials, .social { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .card { background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 20px; width: 300px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    .portfolio img { width: 300px; height: 200px; object-fit: cover; border-radius: 10px; }
+    .testimonial { background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 20px; width: 300px; font-style: italic; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
     .contact { text-align: center; }
     .contact p { font-size: 18px; margin: 10px 0; }
-
     footer { background: #222; color: white; text-align: center; padding: 20px; }
-    .social a { color: white; margin: 0 10px; text-decoration: none; font-size: 18px; }
+    .social a { color: white; margin: 0 10px; font-size: 20px; text-decoration: none; }
     .social a:hover { color: #1a73e8; }
-
-    @media (max-width: 768px) {
-      .services, .portfolio { flex-direction: column; align-items: center; }
-      .hero h2 { font-size: 32px; }
+    /* WhatsApp Button */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     }
+    .whatsapp-btn:hover { background: #20b954; }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header>
-    <h1 id="logo">My Working</h1>
+    <h1 id="logo">Faqja Ime</h1>
     <nav>
       <a href="#about" id="nav-about">Rreth Nesh</a>
       <a href="#services" id="nav-services">Shërbimet</a>
       <a href="#portfolio" id="nav-portfolio">Portfolio</a>
+      <a href="#testimonials" id="nav-testimonials">Testimonials</a>
       <a href="#contact" id="nav-contact">Kontakto</a>
     </nav>
     <div class="languages">
@@ -84,92 +63,88 @@
     </div>
   </header>
 
-  <!-- Hero -->
   <div class="hero">
-    <h2 id="hero-title">Krijojmë faqet që punojnë për ju</h2>
-    <p id="hero-text">Faqe moderne, të shpejta dhe profesionale për biznesin tuaj</p>
+    <h2 id="hero-title">Ne krijojmë faqet që punojnë për ju</h2>
+    <p id="hero-text">Zgjidhni një partner të besueshëm për faqen tuaj të internetit</p>
     <a href="#contact" id="hero-button">Kontakto tani</a>
   </div>
 
-  <!-- About -->
   <section id="about">
     <h2 id="about-title">Rreth Nesh</h2>
-    <p id="about-text">
-      Ne jemi një ekip i apasionuar që ndërton faqe interneti profesionale, moderne dhe funksionale.
-      Qëllimi ynë është t’ju ndihmojmë të prezantoheni sa më bukur online dhe të gjeneroni klientë të rinj.
-    </p>
+    <p id="about-text">Ne jemi një ekip që krijon faqe interneti profesionale, moderne dhe funksionale. Qëllimi ynë është t’ju ndihmojmë të prezantoheni sa më bukur online.</p>
   </section>
 
-  <!-- Services -->
   <section id="services">
     <h2 id="services-title">Shërbimet</h2>
     <div class="services">
-      <div class="card">
-        <h3 id="service1">Krijim faqesh interneti</h3>
-        <p id="service1-text">Zhvillim i faqeve moderne dhe responsive për çdo biznes.</p>
-      </div>
-      <div class="card">
-        <h3 id="service2">Mirëmbajtje</h3>
-        <p id="service2-text">Suport i vazhdueshëm dhe azhurnime për faqen tuaj.</p>
-      </div>
-      <div class="card">
-        <h3 id="service3">Optimizim SEO</h3>
-        <p id="service3-text">Rrisim dukshmërinë tuaj në Google dhe motorë të tjerë kërkimi.</p>
-      </div>
+      <div class="card"><h3 id="service1">Krijim faqesh interneti</h3><p>Faqe moderne dhe të shpejta për biznesin tuaj.</p></div>
+      <div class="card"><h3 id="service2">Mirëmbajtje</h3><p>Suport i vazhdueshëm dhe azhurnime për faqen tuaj.</p></div>
+      <div class="card"><h3 id="service3">Optimizim SEO</h3><p>Faqja juaj do të gjendet lehtë në Google.</p></div>
     </div>
   </section>
 
-  <!-- Portfolio -->
   <section id="portfolio">
     <h2 id="portfolio-title">Portfolio</h2>
     <div class="portfolio">
-      <img src="https://picsum.photos/300/200?random=2" alt="Projekt 1">
-      <img src="https://picsum.photos/300/200?random=3" alt="Projekt 2">
-      <img src="https://picsum.photos/300/200?random=4" alt="Projekt 3">
+      <img src="https://via.placeholder.com/300x200" alt="Projekt demo">
+      <img src="https://via.placeholder.com/300x200" alt="Projekt demo">
+      <img src="https://via.placeholder.com/300x200" alt="Projekt demo">
     </div>
   </section>
 
-  <!-- Contact -->
+  <section id="testimonials">
+    <h2 id="testimonials-title">Testimonials</h2>
+    <div class="testimonials">
+      <div class="testimonial" id="testimonial1">“Shërbim shumë profesional dhe i shpejtë!”</div>
+      <div class="testimonial" id="testimonial2">“Faqja ime tani duket moderne dhe funksionale.”</div>
+      <div class="testimonial" id="testimonial3">“Ekip i besueshëm dhe gjithmonë i gatshëm për ndihmë.”</div>
+    </div>
+  </section>
+
   <section id="contact">
     <h2 id="contact-title">Kontakto</h2>
     <div class="contact">
       <p>Email: <a href="mailto:contactmyworking@gmail.com">contactmyworking@gmail.com</a></p>
-      <p>WhatsApp: <a href="https://wa.me/ target="_blank"></a></p>
+      <p>WhatsApp: <a href= target="_blank">+355 60 000 0000</a></p>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>© 2025 My Working | Të gjitha të drejtat e rezervuara</p>
     <div class="social">
       <a href="#">Instagram</a>
       <a href="#">Facebook</a>
+      <a href="#">LinkedIn</a>
       <a href="#">TikTok</a>
     </div>
   </footer>
 
-  <!-- Script për gjuhët -->
+  <!-- WhatsApp Floating Button -->
+  <a href= class="whatsapp-btn" target="_blank">💬</a>
+
   <script>
     const content = {
       sq: {
-        logo: "My Working",
+        logo: "Faqja Ime",
         navAbout: "Rreth Nesh",
         navServices: "Shërbimet",
         navPortfolio: "Portfolio",
+        navTestimonials: "Testimonials",
         navContact: "Kontakto",
-        heroTitle: "Krijojmë faqet që punojnë për ju",
-        heroText: "Faqe moderne, të shpejta dhe profesionale për biznesin tuaj",
+        heroTitle: "Ne krijojmë faqet që punojnë për ju",
+        heroText: "Zgjidhni një partner të besueshëm për faqen tuaj të internetit",
         heroButton: "Kontakto tani",
         aboutTitle: "Rreth Nesh",
-        aboutText: "Ne jemi një ekip i apasionuar që ndërton faqe interneti profesionale, moderne dhe funksionale. Qëllimi ynë është t’ju ndihmojmë të prezantoheni sa më bukur online dhe të gjeneroni klientë të rinj.",
+        aboutText: "Ne jemi një ekip që krijon faqe interneti profesionale, moderne dhe funksionale. Qëllimi ynë është t’ju ndihmojmë të prezantoheni sa më bukur online.",
         servicesTitle: "Shërbimet",
         service1: "Krijim faqesh interneti",
-        service1Text: "Zhvillim i faqeve moderne dhe responsive për çdo biznes.",
         service2: "Mirëmbajtje",
-        service2Text: "Suport i vazhdueshëm dhe azhurnime për faqen tuaj.",
         service3: "Optimizim SEO",
-        service3Text: "Rrisim dukshmërinë tuaj në Google dhe motorë të tjerë kërkimi.",
         portfolioTitle: "Portfolio",
+        testimonialsTitle: "Testimonials",
+        testimonial1: "“Shërbim shumë profesional dhe i shpejtë!”",
+        testimonial2: "“Faqja ime tani duket moderne dhe funksionale.”",
+        testimonial3: "“Ekip i besueshëm dhe gjithmonë i gatshëm për ndihmë.”",
         contactTitle: "Kontakto"
       },
       en: {
@@ -177,20 +152,22 @@
         navAbout: "About Us",
         navServices: "Services",
         navPortfolio: "Portfolio",
+        navTestimonials: "Testimonials",
         navContact: "Contact",
         heroTitle: "We create websites that work for you",
-        heroText: "Modern, fast and professional websites for your business",
+        heroText: "Choose a reliable partner for your website",
         heroButton: "Contact now",
         aboutTitle: "About Us",
-        aboutText: "We are a passionate team that builds professional, modern and functional websites. Our goal is to help you look great online and attract new clients.",
+        aboutText: "We are a team that builds professional, modern and functional websites. Our goal is to help you look your best online.",
         servicesTitle: "Services",
         service1: "Website Development",
-        service1Text: "Building modern and responsive websites for any business.",
         service2: "Maintenance",
-        service2Text: "Ongoing support and updates for your site.",
         service3: "SEO Optimization",
-        service3Text: "Increase your visibility on Google and other search engines.",
         portfolioTitle: "Portfolio",
+        testimonialsTitle: "Testimonials",
+        testimonial1: "“Very professional and fast service!”",
+        testimonial2: "“My website now looks modern and functional.”",
+        testimonial3: "“Reliable team, always ready to help.”",
         contactTitle: "Contact"
       },
       it: {
@@ -198,20 +175,22 @@
         navAbout: "Chi siamo",
         navServices: "Servizi",
         navPortfolio: "Portfolio",
+        navTestimonials: "Testimonianze",
         navContact: "Contatti",
         heroTitle: "Creiamo siti web che lavorano per te",
-        heroText: "Siti moderni, veloci e professionali per la tua attività",
+        heroText: "Scegli un partner affidabile per il tuo sito web",
         heroButton: "Contattaci ora",
         aboutTitle: "Chi siamo",
-        aboutText: "Siamo un team appassionato che realizza siti web professionali, moderni e funzionali. Il nostro obiettivo è aiutarti a presentarti al meglio online e ad attrarre nuovi clienti.",
+        aboutText: "Siamo un team che realizza siti web professionali, moderni e funzionali. Il nostro obiettivo è aiutarti a presentarti al meglio online.",
         servicesTitle: "Servizi",
         service1: "Creazione siti web",
-        service1Text: "Sviluppo di siti moderni e responsive per ogni attività.",
         service2: "Manutenzione",
-        service2Text: "Supporto continuo e aggiornamenti per il tuo sito.",
         service3: "Ottimizzazione SEO",
-        service3Text: "Aumenta la tua visibilità su Google e altri motori di ricerca.",
         portfolioTitle: "Portfolio",
+        testimonialsTitle: "Testimonianze",
+        testimonial1: "“Servizio molto professionale e veloce!”",
+        testimonial2: "“Il mio sito ora sembra moderno e funzionale.”",
+        testimonial3: "“Team affidabile, sempre pronto ad aiutare.”",
         contactTitle: "Contatti"
       }
     };
@@ -221,6 +200,7 @@
       document.getElementById("nav-about").innerText = content[lang].navAbout;
       document.getElementById("nav-services").innerText = content[lang].navServices;
       document.getElementById("nav-portfolio").innerText = content[lang].navPortfolio;
+      document.getElementById("nav-testimonials").innerText = content[lang].navTestimonials;
       document.getElementById("nav-contact").innerText = content[lang].navContact;
       document.getElementById("hero-title").innerText = content[lang].heroTitle;
       document.getElementById("hero-text").innerText = content[lang].heroText;
@@ -229,12 +209,13 @@
       document.getElementById("about-text").innerText = content[lang].aboutText;
       document.getElementById("services-title").innerText = content[lang].servicesTitle;
       document.getElementById("service1").innerText = content[lang].service1;
-      document.getElementById("service1-text").innerText = content[lang].service1Text;
       document.getElementById("service2").innerText = content[lang].service2;
-      document.getElementById("service2-text").innerText = content[lang].service2Text;
       document.getElementById("service3").innerText = content[lang].service3;
-      document.getElementById("service3-text").innerText = content[lang].service3Text;
       document.getElementById("portfolio-title").innerText = content[lang].portfolioTitle;
+      document.getElementById("testimonials-title").innerText = content[lang].testimonialsTitle;
+      document.getElementById("testimonial1").innerText = content[lang].testimonial1;
+      document.getElementById("testimonial2").innerText = content[lang].testimonial2;
+      document.getElementById("testimonial3").innerText = content[lang].testimonial3;
       document.getElementById("contact-title").innerText = content[lang].contactTitle;
     }
   </script>
